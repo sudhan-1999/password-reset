@@ -12,9 +12,7 @@ function Reset() {
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
       };
-      const handlePasswordChange1 = (event) => {
-        setPassword(event.target.value);
-      };
+    
       function click(){
         console.log(password)
         setPassword(null);
