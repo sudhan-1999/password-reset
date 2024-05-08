@@ -1,13 +1,16 @@
-import Form from 'react-bootstrap/Form';
+import React from "react";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
+import env from "react-dotenv";
 import { useNavigate } from "react-router-dom";
 
+
+
 function Registerform() {
-  const [fname,setFname]=  useState(null);
-  const [lname,setLname]=  useState(null);
-  const [email,setEmail]=  useState(null);
-  const [password,setPassword]=  useState(null);
+  //const API = env.MONGO_URL;
+  const [fname, setFname] = useState(null);
+  const [lname, setLname] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const navigate = useNavigate();
 
   const handleFirstNameChange = (event) => {
@@ -22,7 +25,7 @@ function Registerform() {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  function click(event){
+  function click(event) {
     event.preventDefault(); // Prevents default form submission behavior
     console.log(fname, lname, email, password);
     setFname(null);
@@ -30,38 +33,90 @@ function Registerform() {
     setEmail(null);
     setPassword(null);
     navigate("/login");
-  }
-  return (
-    <Form>
-       <Form.Group className="mb-3" controlId="formGroupFirstName">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control type="text" placeholder="First Name" onChange={handleFirstNameChange} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formGroupSecondName">
-        <Form.Label>Second Name</Form.Label>
-        <Form.Control type="text" placeholder="Second Name" onChange={handleSecondNameChange} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formGroupEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formGroupPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange}/>
-      </Form.Group>
-      <Button type="submit" onClick={click}>Register</Button>
-      <p>
-        Already Have An account?:
-        <a
-          onClick={() => {
-            navigate("/login");
-          }}
-          style={{ color: "blue" }}
-        >
-          login
-        </a>
-      </p>
-    </Form>
+    }
+      return (
+    <div className="registerpage">
+      <form action="/action_page.php" class="was-validated">
+        <div class="mb-3 mt-3">
+          <label for="First Name" class="form-label">
+            First Name:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="fname"
+            placeholder=" First Name"
+            name="fname"
+            onChange={handleFirstNameChange}
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="Second Name" class="form-label">
+            Second Name:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            placeholder=" Second Name"
+            name="lname"
+            onChange={handleSecondNameChange}
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="email" class="form-label">
+            Email:
+          </label>
+
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            onChange={handleEmailChange}
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+          <label for="pwd" class="form-label">
+            Password:
+          </label>
+
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter password"
+            name="password"
+            onChange={handlePasswordChange}
+            required
+          />
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <button type="submit" class="btn btn-primary" onClick={click}>
+          Register Now
+        </button>
+        <p>
+          Already Have An Account?
+          <a
+            style={{ color: "rgb(0, 0, 255)" }}
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Login
+          </a>
+        </p>
+      </form>
+    </div>
   );
 }
 

@@ -20,13 +20,13 @@ function Reset() {
       }
     
   return (
-    <>
+    <form className='reset'>
     <Form.Group className="mb-3" controlId="formGroupPassword">
         <Form.Label> New Password : </Form.Label>
-        <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange}/>
+        <Form.Control type="password" placeholder=" New Password" onChange={handlePasswordChange}/>
       </Form.Group>
       <Button type="submit" onClick={click}>Reset Password</Button>
-      </>
+      </form>
 
   )
 }

@@ -22,7 +22,7 @@ function Login() {
     navigate("/logedin");
   }
   return (
-    <Form>
+    <Form className='login'>
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email"  onChange={handleEmailChange}/>
@@ -32,7 +32,7 @@ function Login() {
         <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange}/>
       </Form.Group>
       <Button type="submit" onClick={click}>Login</Button>
-      <p><a onClick={()=>{navigate("/reset");}} >Forgot Password?</a></p>
+      <p><a onClick={()=>{navigate("/forgotpassword");}} >Forgot Password?</a></p>
 
     </Form>
   );
