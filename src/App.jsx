@@ -6,6 +6,7 @@ import Login from "./login";
 import Logged from './loggedin';
 import ForgotPassword from './forgotpassword';
 import Reset from './reset';
+import Page from "./Page";
 
 function App() {
   
@@ -19,6 +20,8 @@ function App() {
             <Route path="/logedin" element={<Logged />} />
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/reset" element={<Reset />} />
+            <Route path="/page" element={<Page />} />
+
 
           </Routes>
         </BrowserRouter>

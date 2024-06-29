@@ -2,11 +2,12 @@ import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 
 function Login() {
     const navigate = useNavigate();
-    const [email,setEmail]=  useState(null);
+    const [Email,setEmail]=  useState(null);
   const [password,setPassword]=  useState(null);
 
   const handleEmailChange = (event) => {
@@ -15,11 +16,20 @@ function Login() {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  function click(){
-    console.log(email,password)
-    setEmail(null);
-    setPassword(null);
-    navigate("/logedin");
+  function click(event){
+    event.preventDefault(); 
+    const newdata={
+      Email,
+      password
+    }
+    axios.post("http://localhost:5000/login",newdata)
+    .then((res)=>{
+      console.log(res.message);
+      setEmail("");
+      setPassword("");
+      navigate("/logedin");
+    })
+   
   }
   return (
     <Form className='login'>
