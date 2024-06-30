@@ -22,7 +22,7 @@ function Login() {
       Email,
       password
     }
-    axios.post("http://localhost:5000/login",newdata)
+    axios.post("https://password-reset-oxnv.onrender.com/login",newdata)
     .then((res)=>{
       console.log(res.message);
       setEmail("");

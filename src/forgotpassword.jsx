@@ -15,7 +15,7 @@ function ForgotPassword() {
  
       function click(event)  {
         event.preventDefault(); 
-        axios.post("http://localhost:5000/forgotpassword",{Email})
+        axios.post("https://password-reset-oxnv.onrender.com/forgotpassword",{Email})
         .then(()=>{ setEmail("");
           navigate("/page"); 
         })

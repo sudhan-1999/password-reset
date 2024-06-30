@@ -33,7 +33,7 @@ function Registerform() {
       Email, 
       password
     }
-    axios.post("http://localhost:5000/", newdata)
+    axios.post("https://password-reset-oxnv.onrender.com/", newdata)
       .then(() => {
         setFirstname("");
         setSecondname("");

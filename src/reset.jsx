@@ -27,7 +27,7 @@ function Reset() {
       function click(){
         event.preventDefault(); 
         try{
-          axios.post("http://localhost:5000/reset",newdata)
+          axios.post("https://password-reset-oxnv.onrender.com/reset",newdata)
           .then(()=>{ setEmail("");
             setPassword("");
             setNewpassword("")
