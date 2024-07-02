@@ -17,7 +17,7 @@ function ForgotPassword() {
         event.preventDefault(); 
         axios.post("https://password-reset-oxnv.onrender.com/forgotpassword",{Email})
         .then(()=>{ setEmail("");
-          navigate("/page"); 
+          navigate("/reset"); 
         })
       };
   return (
